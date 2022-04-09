@@ -1,0 +1,27 @@
+.container__card {
+    text-align: center;
+    background-color: #F1DDBF;
+    width: 28%;
+    border: 2px solid #525E75;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.container__btn {
+    text-align: end;
+    padding: 7px 7px 0 0;
+}
+
+.btnClose {
+    background-color: #FF6B6B;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.container__temp {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+}
