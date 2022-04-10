@@ -7,12 +7,12 @@ function App() {
 
   const {REACT_APP_API_KEY} = process.env;
 
-  const [ciudad, setCiudad] = useState([]);
+  const [ciudades, setCiudad] = useState([]);
   const consultarCiudad = (ciudad) => {
     fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${REACT_APP_API_KEY}&units=metric`)
       .then(respuesta => respuesta.json())
       .then(info => {
-          const ciudad = {
+          const objCiudad = {
             min: Math.round(info.main.temp_min),
             max: Math.round(info.main.temp_max),
             img: info.weather[0].icon,
@@ -26,15 +26,28 @@ function App() {
             longitud: info.coord.lon
           };
           
-          setCiudad(oldCiudades => [...oldCiudades,ciudad]);
+          const encontrarCiudad = ciudades.find(ciudad => ciudad.id === objCiudad.id);
+          if (encontrarCiudad) {
+            alert('Esta ciudad ya se encuentra!');
+          } else {
+            setCiudad(oldCiudades => [...oldCiudades,objCiudad]);
+          }
       });
+  }
+
+  const onClose = (idCiudad) => {
+    setCiudad(oldCiudades => oldCiudades.filter(c => c.id !== idCiudad));
   }
 
   return (
     <div className="App">
      <Nav 
-      consultarCiudad={consultarCiudad}/>
-      <Cards ciudad={ciudad}/>
+      consultarCiudad={consultarCiudad}
+      />
+      <Cards 
+      ciudad={ciudades}
+      onClose={onClose}
+      />
     </div>
   );
 }

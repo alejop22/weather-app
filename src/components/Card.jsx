@@ -6,7 +6,7 @@ export default function Card(props) {
     return (
         <div className={styles.container__card}>
             <div className={styles.container__btn}>
-                <button className={styles.btnClose}> X </button>
+                <button className={styles.btnClose} onClick={() => props.onClose(props.id)}> X </button>
             </div>
             <div>
                 <h1>{props.name}</h1>

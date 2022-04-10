@@ -11,8 +11,17 @@ export default function Nav({consultarCiudad}) {
 
     return (
         <nav className="nav">
-            <input type="text" onChange={(e) => capturarInput(e)}/>
-            <button className="btn" onClick={() => consultarCiudad(input)}>Buscar</button>
+            <input type="text" onChange={(e) => capturarInput(e)} value={input} placeholder="Ciudad..."/>
+            <button className="btn" onClick={() => {
+                    if (!input) {
+                        alert('debe ingresar una ciudad')
+                    } else {
+                        consultarCiudad(input)
+                        setInput('');    
+                    }
+                }
+                
+            }>Buscar</button>
         </nav>
     );
 }
