@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from '../components/card.module.css';
 
 
@@ -9,7 +10,9 @@ export default function Card(props) {
                 <button className={styles.btnClose} onClick={() => props.onClose(props.id)}> X </button>
             </div>
             <div>
-                <h1>{props.name}</h1>
+                <Link to={`/ciudad/${props.id}`} className={styles.linkCiudad}>
+                    <h1>{props.name}</h1>
+                </Link>
             </div>
             <div className={styles.container__temp}>
                 <div>

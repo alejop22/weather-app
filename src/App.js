@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import Nav from "./components/Nav.jsx";
-import Cards from './components/Cards.jsx'
+import Cards from './components/Cards.jsx';
+import Ciudad from "./components/Ciudad.jsx";
 import './app.css'
 
 function App() {
@@ -25,7 +27,6 @@ function App() {
             latitud: info.coord.lat,
             longitud: info.coord.lon
           };
-          
           const encontrarCiudad = ciudades.find(ciudad => ciudad.id === objCiudad.id);
           if (encontrarCiudad) {
             alert('Esta ciudad ya se encuentra!');
@@ -41,13 +42,13 @@ function App() {
 
   return (
     <div className="App">
-     <Nav 
-      consultarCiudad={consultarCiudad}
-      />
-      <Cards 
-      ciudad={ciudades}
-      onClose={onClose}
-      />
+        <Nav consultarCiudad={consultarCiudad}/>
+      <Routes>
+        <Route path="/" element={<Cards ciudad={ciudades} onClose={onClose}/>} />
+        <Route path="/ciudad/:id" element={<Ciudad/>} />
+
+      </Routes>
+
     </div>
   );
 }

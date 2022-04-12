@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import '../components/nav.css';
 
 export default function Nav({consultarCiudad}) {
@@ -11,17 +12,22 @@ export default function Nav({consultarCiudad}) {
 
     return (
         <nav className="nav">
-            <input type="text" onChange={(e) => capturarInput(e)} value={input} placeholder="Ciudad..."/>
-            <button className="btn" onClick={() => {
-                    if (!input) {
-                        alert('debe ingresar una ciudad')
-                    } else {
-                        consultarCiudad(input)
-                        setInput('');    
+            <Link to="/">
+                <div className="spanHome">Home</div> 
+            </Link>
+            <div className="container__searchbar">
+                <input type="text" onChange={(e) => capturarInput(e)} value={input} placeholder="Ciudad..."/>
+                <button className="btn" onClick={() => {
+                        if (!input) {
+                            alert('debe ingresar una ciudad')
+                        } else {
+                            consultarCiudad(input)
+                            setInput('');    
+                        }
                     }
-                }
-                
-            }>Buscar</button>
+                    
+                }>Buscar</button>
+            </div>
         </nav>
     );
 }

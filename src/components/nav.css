@@ -1,9 +1,17 @@
 .nav {
     background-color: #525E75;
-    text-align: end;
     padding: 10px;
+    display: flex;
 }
 
 .btn {
     margin-left: 10px;
+}
+
+.spanHome {
+
+}
+
+.container__searchbar {
+    text-align: end;
 }
