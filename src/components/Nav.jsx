@@ -12,10 +12,8 @@ export default function Nav({consultarCiudad}) {
 
     return (
         <nav className="nav">
-            <Link to="/">
-                <div className="spanHome">Home</div> 
-            </Link>
-            <div className="container__searchbar">
+           
+            <div>
                 <input type="text" onChange={(e) => capturarInput(e)} value={input} placeholder="Ciudad..."/>
                 <button className="btn" onClick={() => {
                         if (!input) {
@@ -28,6 +26,9 @@ export default function Nav({consultarCiudad}) {
                     
                 }>Buscar</button>
             </div>
+            <Link to="/" className="home">
+                Home
+            </Link>
         </nav>
     );
 }

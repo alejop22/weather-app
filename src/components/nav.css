@@ -1,17 +1,19 @@
 .nav {
-    background-color: #525E75;
-    padding: 10px;
+    background-color: #3A3845;
+    padding: 15px;
     display: flex;
+    justify-content: center
 }
 
 .btn {
     margin-left: 10px;
+    cursor: pointer;
 }
 
-.spanHome {
-
-}
-
-.container__searchbar {
-    text-align: end;
+.home {
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 50px;
+    color: #F7CCAC;
 }
